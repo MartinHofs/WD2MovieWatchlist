@@ -1,0 +1,30 @@
+body {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: blue;
+    color: azure;
+}
+
+button {
+    border-radius: 25px;
+    background-color: aqua;
+    color: darkgoldenrod;
+    transition: background-color 1s, color 1s;
+}
+
+button:hover {
+    background-color: red;
+    color: lightpink;
+}
+
+h1, p, h3, ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    transition: color 1s;
+}
+
+h1:hover, p:hover, h3:hover, ul:hover {
+    color: black;
+}

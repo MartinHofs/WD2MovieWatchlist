@@ -20,7 +20,7 @@ genre.forEach((genre) => {
 
 
 const watchlist = {
-  movies: [{ title: "The Princess Bride", genre: "Adventure", watched: false }],
+  movies: [],
   toggleWatched(index) {
     // TODO (Step 4)
     this.movies[index].watched = !this.movies[index].watched
@@ -116,9 +116,9 @@ form.addEventListener("submit", (event) => {
     watchlist.movies.push(newMovie)
     saveMovies()
     renderMovies()
+    titleInput.value = ""
+    message.textContent = ""
   }
-  titleInput.value = ""
-  message.textContent = ""
 });
 
 loadMovies();
