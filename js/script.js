@@ -33,10 +33,23 @@ const watchlist = {
 
 function saveMovies() {
   // TODO (Step 6)
+  localStorage.setItem('movies', JSON.stringify(watchlist.movies))
 }
 
 function loadMovies() {
   // TODO (Step 6)
+  let saved = JSON.parse(localStorage.getItem('movies'))
+  console.log(saved)
+
+  if (saved != null && saved != "") {
+    try {
+      watchlist.movies = saved
+    } catch (err) {
+      
+    }
+  } else {
+    
+  }
 }
 
 function renderMovies() {
@@ -101,6 +114,7 @@ form.addEventListener("submit", (event) => {
       watched: false
     }
     watchlist.movies.push(newMovie)
+    saveMovies()
     renderMovies()
   }
   titleInput.value = ""
