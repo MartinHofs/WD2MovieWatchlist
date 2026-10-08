@@ -5,6 +5,20 @@ const message = document.getElementById("form-message");
 const movieList = document.getElementById("movie-list");
 const emptyMessage = document.getElementById("empty-message");
 
+const genre = ["Adventure", "Mystery", "Horror", "Comedy", "Superhero"]
+genre.forEach((genre) => {
+  console.log(genre)
+
+  let option = document.createElement("option")
+  option.innerText = genre
+  option.value = genre
+
+  console.log(option)
+
+  genreSelect.appendChild(option)
+})
+
+
 const watchlist = {
   movies: [{ title: "The Princess Bride", genre: "Adventure", watched: false }],
   toggleWatched(index) {
@@ -32,7 +46,7 @@ function renderMovies() {
     const card = document.createElement("li")
     const title = document.createElement("h3")
     title.textContent = movie.title
-    
+
     const details1 = document.createElement("p")
     details1.textContent = movie.genre
     const details2 = document.createElement("p")
@@ -68,6 +82,29 @@ function renderMovies() {
 
 form.addEventListener("submit", (event) => {
   // TODO (Step 5)
+  event.preventDefault()
+
+  let titleValue = titleInput.value.trim()
+  let genreValue = genreSelect.value
+  if (titleValue == "") {
+    message.textContent = "Enter a movie title"
+    return
+  }
+  if (genreValue == "") {
+    message.textContent = "Enter a genre"
+    return
+  }
+  if (titleValue && genreValue) {
+    const newMovie = {
+      title: titleValue,
+      genre: genreValue,
+      watched: false
+    }
+    watchlist.movies.push(newMovie)
+    renderMovies()
+  }
+  titleInput.value = ""
+  message.textContent = ""
 });
 
 loadMovies();
