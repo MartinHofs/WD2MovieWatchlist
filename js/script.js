@@ -6,7 +6,7 @@ const movieList = document.getElementById("movie-list");
 const emptyMessage = document.getElementById("empty-message");
 
 const watchlist = {
-  movies: [],
+  movies: [{ title: "The Princess Bride", genre: "Adventure", watched: false }],
   toggleWatched(index) {
     // TODO (Step 4)
   },
@@ -25,6 +25,7 @@ function loadMovies() {
 
 function renderMovies() {
   // TODO (Step 3)
+  movieList.replace
 }
 
 form.addEventListener("submit", (event) => {
